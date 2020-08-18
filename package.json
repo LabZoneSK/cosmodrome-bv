@@ -37,7 +37,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
     "natives": "^1.1.6",
+    "popper.js": "^1.16.1",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.4",
     "vuex": "^3.1.0"

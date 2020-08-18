@@ -20,5 +20,5 @@ Run `gulp build`
 
 - static assets, like images and fonts should go directly to `web` directory
 - this setup doesn't come with server, so you'll need to fire one up and server `web` directory
-- this setup includes Vuex
+- this setup includes Vuex, Bootstrap, Poper and jQuery
 - examples of both SingleFile vue component and "raw" JS component are present
