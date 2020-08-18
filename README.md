@@ -15,3 +15,8 @@ Run `gulp watch-dev`
 
 ### Production build
 Run `gulp build`
+
+### Notes
+
+- static assets, like images and fonts should go directly to `web` directory
+- this setup doesn't come with server, so you'll need to fire one up and server `web` directory
