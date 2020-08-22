@@ -2,7 +2,16 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   rename = require('gulp-rename'),
   webpack = require('webpack-stream'),
+  server = require('gulp-express'),
   VueLoaderPlugin = require('vue-loader/lib/plugin');
+
+
+gulp.task('server', function () {
+  // Start the server at the beginning of the task
+  server.run(['./assets/server/app.js']);
+  gulp.watch('./assets/scss/**/*.scss', ['sass-dev']);
+  gulp.watch(['./assets/js/**/*.js', "./assets/js/**/*.vue"], ['scripts-dev']);
+});
 
 gulp.task('sass', function() {
   return gulp.src('./assets/scss/app.scss')
@@ -103,7 +112,6 @@ gulp.task('scripts-dev', function() {
     })
     .pipe(gulp.dest('./web/js'));
 });
-
 
 
 gulp.task('watch-dev', function () {

@@ -11,14 +11,15 @@ All covered by `.editorconfig`. Just make sure you have IDE/Editor specific supp
 
 ### Every day development
 
-Run `gulp watch-dev`
+Without server: `gulp watch-dev`  
+With server: `gulp server`
 
 ### Production build
 Run `gulp build`
 
 ### Notes
 
+- server serves files from `web` directory
 - static assets, like images and fonts should go directly to `web` directory
-- this setup doesn't come with server, so you'll need to fire one up and server `web` directory
 - this setup includes Vuex, Bootstrap, Poper and jQuery
 - examples of both SingleFile vue component and "raw" JS component are present
