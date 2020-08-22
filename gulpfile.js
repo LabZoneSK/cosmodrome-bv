@@ -67,6 +67,9 @@ gulp.task('scripts', function() {
         new VueLoaderPlugin()
       ]
   }))
+  .on('error', function handleError() {
+    this.emit('end'); // Recover from errors
+  })
   .pipe(gulp.dest('./web/js'));
 });
 
@@ -95,6 +98,9 @@ gulp.task('scripts-dev', function() {
         new VueLoaderPlugin()
       ]
     }))
+    .on('error', function handleError() {
+      this.emit('end'); // Recover from errors
+    })
     .pipe(gulp.dest('./web/js'));
 });
 
