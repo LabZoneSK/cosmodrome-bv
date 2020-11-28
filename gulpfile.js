@@ -2,6 +2,7 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   rename = require('gulp-rename'),
   webpack = require('webpack-stream'),
+  sourcemaps = require('gulp-sourcemaps'),
   server = require('gulp-express'),
   VueLoaderPlugin = require('vue-loader/lib/plugin');
 
@@ -15,7 +16,8 @@ gulp.task('server', function () {
 
 gulp.task('sass', function() {
   return gulp.src('./assets/scss/app.scss')
-    .pipe(sass({outputStyle: 'compressed', precision: 4}).on('error', sass.logError))
+    .pipe(sass({outputStyle: 'compressed', precision: 4})
+    .on('error', sass.logError))
     .pipe(rename({
       suffix: ".min",
     }))
@@ -24,7 +26,10 @@ gulp.task('sass', function() {
 
 gulp.task('sass-dev', function() {
   return gulp.src('./assets/scss/app.scss')
-    .pipe(sass({outputStyle: 'expanded', precision: 4}).on('error', sass.logError))
+    .pipe(sourcemaps.init())
+    .pipe(sass({outputStyle: 'expanded', precision: 4})
+    .on('error', sass.logError))
+    .pipe(sourcemaps.write())
     .pipe(rename({
       suffix: ".min",
     }))
